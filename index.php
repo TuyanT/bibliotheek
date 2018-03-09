@@ -1,3 +1,22 @@
+<?php
+session_start()
+?>
+
+<?php
+if (isset($_GET["page"])) {
+    $page = $_GET["page"];
+}   
+
+else {
+    $page="home";
+}
+
+if($page == "logout")
+{
+    header('location:php/logout.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +25,10 @@
         <link rel="stylesheet" href="style.css">
         <title>Bibliotheek Arnhem - Login</title>
     </head>
+
+    <?php include "includes/navbar.inc.php"; ?>
+
+    <?php include "includes/".$page.".inc.php"; ?>
 
     <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
